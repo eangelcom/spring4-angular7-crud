@@ -1,0 +1,23 @@
+<br/>
+<div class="table-responsive">
+    <table class="table table-hover">
+    <thead>
+    <tr>
+        <td>N&uacute;mero tarjeta</td>
+        <td>CCV</td>
+        <td>Tipo</td>
+        <td colspan="2"><a routerLink="create" class="nav-link" routerLinkActive="active" class="btn btn-primary">Crear</a></td>
+    </tr>
+    </thead>
+  
+    <tbody>
+        <tr *ngFor="let card of cards">
+            <td><a [routerLink]="['/consumption', card.id]" class="nav-link" routerLinkActive="active">{{ card.number }}</a></td>
+            <td>{{ card.ccv }}</td>
+            <td>{{ card.type }}</td>
+            <td><a [routerLink]="['edit', card.id]" class="btn btn-primary">Editar</a></td>
+            <td><a [routerLink]="['del', card.id]" class="btn btn-danger">Eliminar</a></td>
+        </tr>
+    </tbody>
+  </table>
+</div>

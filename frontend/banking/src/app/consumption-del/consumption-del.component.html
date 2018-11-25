@@ -1,0 +1,29 @@
+<br/>
+<div class="card">
+    <div class="card-body">
+      <form [formGroup]="angForm" novalidate>
+        <div class="form-group">
+          <label class="col-md-4">Fecha Consumo</label>
+          <input [attr.disabled]="true" type="text" class="form-control" formControlName="consumption_date" #consumption_date [(ngModel)] = "consumption.date" />
+        </div>
+
+        <div class="form-group">
+          <label class="col-md-4">Descripci&oacute;n </label>
+          <input [attr.disabled]="true" type="text" class="form-control" formControlName="consumption_description" #consumption_description [(ngModel)] = "consumption.description" />
+        </div>
+
+        <div class="form-group">
+            <label class="col-md-4">Cantidad </label>
+            <input [attr.disabled]="true" type="text" class="form-control" formControlName="consumption_amount" #consumption_amount [(ngModel)] = "consumption.amount" />
+        </div>
+                    
+        <div class="form-group">
+          <button (click)="deleteConsumption()"
+          [disabled]="angForm.invalid" 
+          class="btn btn-primary">Eliminar</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+

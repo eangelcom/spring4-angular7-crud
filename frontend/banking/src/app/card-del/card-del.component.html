@@ -1,0 +1,27 @@
+<br/>
+<div class="card">
+    <div class="card-body">
+      <form [formGroup]="angForm" novalidate>
+        <div class="form-group">
+          <label class="col-md-4">N&uacute;mero Tarjeta</label>
+          <input [attr.disabled]="true" type="text" class="form-control" formControlName="card_number" #card_number [(ngModel)] = "card.number" />
+        </div>
+
+        <div class="form-group">
+          <label class="col-md-4">CCV </label>
+          <input [attr.disabled]="true" type="text" class="form-control" formControlName="card_ccv" #card_ccv [(ngModel)] = "card.ccv" />
+        </div>
+
+        <div class="form-group">
+            <label class="col-md-4">Tipo </label>
+            <input [attr.disabled]="true" type="text" class="form-control" formControlName="card_type" #card_type [(ngModel)] = "card.type" />
+        </div>
+                    
+        <div class="form-group">
+          <button (click)="deleteCard()"
+          [disabled]="angForm.invalid" 
+          class="btn btn-primary">Eliminar</button>
+        </div>
+      </form>
+    </div>
+  </div>

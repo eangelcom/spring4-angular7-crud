@@ -1,0 +1,35 @@
+<br/>
+<div class="card">
+    <div class="card-body">
+      <form [formGroup]="angForm" novalidate>
+        <div class="form-group">
+          <label class="col-md-4">Nombre Cliente</label>
+          <input [attr.disabled]="true" type="text" class="form-control" formControlName="customer_name" #customer_name [(ngModel)] = "customer.name" />
+        </div>
+
+        <div class="form-group">
+          <label class="col-md-4">Ciudad </label>
+          <input [attr.disabled]="true" type="text" class="form-control" formControlName="customer_city" #customer_city [(ngModel)] = "customer.city" />
+        </div>
+
+        <div class="form-group">
+            <label class="col-md-4">Direcci&oacute;n </label>
+            <input [attr.disabled]="true" type="text" class="form-control" formControlName="customer_address" #customer_address [(ngModel)] = "customer.address" />
+        </div>
+          
+        <div class="form-group">
+            <label class="col-md-4">Tel&eacute;fono </label>
+            <input [attr.disabled]="true" type="text" class="form-control" formControlName="customer_phone" #customer_phone [(ngModel)] = "customer.phone" />
+        </div>
+                    
+        <div class="form-group">
+          <button (click)="deleteCustomer()"
+          [disabled]="angForm.invalid" 
+          class="btn btn-primary">Eliminar</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+
+

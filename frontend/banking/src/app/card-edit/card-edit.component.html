@@ -1,0 +1,54 @@
+<br/>
+<div class="card">
+    <div class="card-body">
+      <form [formGroup]="angForm" novalidate>
+        <div class="form-group">
+          <label class="col-md-4">N&uacute;mero Tarjeta</label>
+          <input minlength="16" maxlength="16" pattern="[0-9]+" type="text" class="form-control" formControlName="card_number" #card_number [(ngModel)] = "card.number" />
+        </div>
+        <div *ngIf="angForm.controls['card_number'].invalid && (angForm.controls['card_number'].dirty || angForm.controls['card_number'].touched)" class="alert alert-danger">
+          <div *ngIf="angForm.controls['card_number'].errors.required">
+              Este campo es requerido.
+          </div>
+          <div *ngIf="angForm.controls['card_number'].errors.minlength">
+              Este campo debe tener 16 n&uacute;meros.
+          </div>   
+          <div *ngIf="angForm.controls['card_number'].errors.pattern">
+              Este campo debe tener solamente n&uacute;meros.
+          </div>                   
+        </div>
+
+        <div class="form-group">
+          <label class="col-md-4">CCV </label>
+          <input minlength="3" maxlength="4" pattern="[0-9]+" type="text" class="form-control" formControlName="card_ccv" #card_ccv [(ngModel)] = "card.ccv" />
+        </div>
+        <div *ngIf="angForm.controls['card_ccv'].invalid && (angForm.controls['card_ccv'].dirty || angForm.controls['card_ccv'].touched)" class="alert alert-danger">
+          <div *ngIf="angForm.controls['card_ccv'].errors.required">
+              Este campo es requerido.
+          </div>
+          <div *ngIf="angForm.controls['card_ccv'].errors.minlength">
+              Este campo debe tener al menos 3 n&uacute;meros.
+          </div>
+          <div *ngIf="angForm.controls['card_ccv'].errors.pattern">
+              Este campo debe tener solamente n&uacute;meros.
+          </div>            
+        </div>
+
+        <div class="form-group">
+            <label class="col-md-4">Tipo </label>
+            <input maxlength="50" type="text" class="form-control" formControlName="card_type" #card_type [(ngModel)] = "card.type" />
+        </div>
+        <div *ngIf="angForm.controls['card_type'].invalid && (angForm.controls['card_type'].dirty || angForm.controls['card_type'].touched)" class="alert alert-danger">
+            <div *ngIf="angForm.controls['card_type'].errors.required">
+                Este campo es requerido.
+            </div>
+        </div>
+                    
+        <div class="form-group">
+          <button (click)="updateCard(card_number.value, card_ccv.value, card_type.value)"
+          [disabled]="angForm.invalid" 
+          class="btn btn-primary">Guardar</button>
+        </div>
+      </form>
+    </div>
+  </div>

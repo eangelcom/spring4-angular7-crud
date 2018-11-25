@@ -1,0 +1,23 @@
+<br/>
+<div class="table-responsive">
+  <table class="table table-hover">
+    <thead>
+    <tr>
+        <td>Fecha consumo</td>
+        <td>Descripci&oacute;n</td>
+        <td>Cantidad</td>
+        <td colspan="2"><a routerLink="create" class="nav-link" routerLinkActive="active" class="btn btn-primary">Crear</a></td>
+    </tr>
+    </thead>
+  
+    <tbody>
+        <tr *ngFor="let consumption of consumptions">
+            <td>{{ consumption.date | date: 'yyyy-MM-dd' }}</td>
+            <td>{{ consumption.description }}</td>
+            <td>{{ consumption.amount }}</td>
+            <td><a [routerLink]="['edit', consumption.id]" class="btn btn-primary">Editar</a></td>
+            <td><a [routerLink]="['del', consumption.id]" class="btn btn-danger">Eliminar</a></td>
+        </tr>
+    </tbody>
+  </table>
+</div>

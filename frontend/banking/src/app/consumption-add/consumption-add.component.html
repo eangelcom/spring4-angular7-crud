@@ -1,0 +1,49 @@
+<br/>
+<div class="card">
+  <div class="card-body">
+    <form [formGroup]="angForm" novalidate>
+
+      <div class="form-group">
+        <label class="col-md-4">Fecha del consumo (aaaa-MM-dd)</label>
+        <input maxlength="10" type="text" class="form-control" formControlName="consumption_date" #consumption_date />
+      </div>
+      <div *ngIf="angForm.controls['consumption_date'].invalid && (angForm.controls['consumption_date'].dirty || angForm.controls['consumption_date'].touched)" class="alert alert-danger">
+          <div *ngIf="angForm.controls['consumption_date'].errors.required">
+              Este campo es requerido.
+          </div>
+      </div>
+
+      <div class="form-group">
+        <label class="col-md-4">Descripci&oacute;n</label>
+        <input maxlength="100" type="text" class="form-control" formControlName="consumption_description" #consumption_description />
+      </div>
+      <div *ngIf="angForm.controls['consumption_description'].invalid && (angForm.controls['consumption_description'].dirty || angForm.controls['consumption_description'].touched)" class="alert alert-danger">
+          <div *ngIf="angForm.controls['consumption_description'].errors.required">
+              Este campo es requerido.
+          </div>
+      </div>
+
+      <div class="form-group">
+        <label class="col-md-4">Monto</label>
+        <input maxlength="12" pattern="[0-9]+" type="text" class="form-control" formControlName="consumption_amount" #consumption_amount />
+      </div>
+      <div *ngIf="angForm.controls['consumption_amount'].invalid && (angForm.controls['consumption_amount'].dirty || angForm.controls['consumption_amount'].touched)" class="alert alert-danger">
+          <div *ngIf="angForm.controls['consumption_amount'].errors.required">
+              Este campo es requerido.
+          </div>
+          <div *ngIf="angForm.controls['consumption_amount'].errors.pattern">
+              Este campo debe tener solamente n&uacute;meros.
+          </div>           
+      </div>
+
+      <div class="form-group">
+        <button (click)="addConsumption(consumption_date.value, consumption_description.value, consumption_amount.value)"
+          [disabled]="angForm.pristine || angForm.invalid" 
+          class="btn btn-primary">
+          Crear
+        </button>        
+      </div>
+
+    </form>
+  </div>
+</div>

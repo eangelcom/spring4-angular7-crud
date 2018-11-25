@@ -1,0 +1,21 @@
+<br/>
+<div class="table-responsive">
+  <table class="table table-hover">
+    <thead>
+    <tr>
+        <td>Nombre asesor</td>
+        <td>Especialidad</td>
+        <td colspan="2"><a routerLink="create" class="nav-link" routerLinkActive="active" class="btn btn-primary">Crear</a></td>
+    </tr>
+    </thead>
+  
+    <tbody>
+        <tr *ngFor="let consultant of consultants">
+            <td>{{ consultant.name }}</td>
+            <td>{{ consultant.specialty }}</td>
+            <td><a [routerLink]="['edit', consultant.id]" class="btn btn-primary">Editar</a></td>
+            <td><a [routerLink]="['del', consultant.id]" class="btn btn-danger">Eliminar</a></td>
+        </tr>
+    </tbody>
+  </table>
+</div>
