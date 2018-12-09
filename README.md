@@ -15,7 +15,7 @@ To execute frontend:
 
 $ cd frontend/banking
 
-$ unzip node_modules.zip
+$ npm install bootstrap --save
 
 $ ng serve -o
 
